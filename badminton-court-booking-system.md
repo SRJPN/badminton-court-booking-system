@@ -5,8 +5,7 @@
 Design a badminton court booking system. The system features are:
 
 1. There are wooden as well as concrete courts in a sports complex.
-2. Each booking slot has to be minimum 30 minutes and thereafter multiple of 30 min e.g. 30
-min, 60 min, 90 min etc.
+2. Each booking slot has to be minimum 30 minutes and thereafter multiple of 30 min e.g. 30 min, 60 min, 90 min etc.
 3. The sports complex timing is 6 AM to 9 PM
 4. Each user gets a receipt of their court bookings for a given day.
 
@@ -37,7 +36,7 @@ Court
 
 Booking
     {
-        courtId,
+        court,
         bookingTime: DateTime
         bookingSlots: number (total time is number * 30 minutes)
     }
