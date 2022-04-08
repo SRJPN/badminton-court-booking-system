@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,5 +18,12 @@ namespace BookingSystem.Domain
         public double Discount => Bookings.Count >= 4 ? TotalAmount * DISCOUNT_FOR_4_BOOKINGS : 0;
 
         public double TotalAfterDiscount => TotalAmount - Discount;
+
+        public void PrintBookings(Action<string, DateTime, int> print) {
+            foreach (var booking in Bookings)
+            {
+                print(booking.Court.CourtType.ToString(), booking.BookingTime, booking.Slots);
+            }
+        }
     }
 }

@@ -36,15 +36,16 @@ namespace BookingSystem
         public void Print(BookingReciept bookingReciept)
         {
             Console.WriteLine("Bookings");
-            foreach (var booking in bookingReciept.Bookings)
-            {
-                Console.WriteLine($"{booking.Court.CourtType} {booking.BookingTime} {booking.Slots}");
-            }
+            bookingReciept.PrintBookings(this.PrintBooking);
 
             Console.WriteLine("");
             Console.WriteLine($"Total Amount: {bookingReciept.TotalAmount}");
             Console.WriteLine($"Discount: {bookingReciept.Discount}");
             Console.WriteLine($"Total Amount After Discount: {bookingReciept.TotalAfterDiscount}");
+        }
+
+        private void PrintBooking(string courtType, DateTime bookingTime, int slots){
+            Console.WriteLine($"{courtType}\t{bookingTime}\t{slots}");
         }
     }
 }
