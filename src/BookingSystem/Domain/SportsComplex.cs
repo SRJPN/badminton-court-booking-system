@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BookingSystem.Domain;
 
 public class SportsComplex
 {
@@ -27,5 +28,12 @@ public class SportsComplex
         var booking = new Booking(court, bookingTime, noOfSlots);
         bookings.Add(booking);
         return booking;
+    }
+
+    public BookingReciept MakeBooking(IList<BookingRequest> bookingRequests)
+    {
+        var bookings = bookingRequests.Select(bookingRequest => MakeBooking(bookingRequest.CourtType, bookingRequest.BookingTime, bookingRequest.Slots));
+        var bookingReciept = new BookingReciept(bookings.ToList());
+        return bookingReciept;
     }
 }

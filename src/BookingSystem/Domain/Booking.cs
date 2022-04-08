@@ -18,5 +18,4 @@ public class Booking
     public void Print(IPrinter printer) {
         printer.Print(this.Court.CourtType, this.Court.Rate, this.BookingTime, this.Slots);
     }
-
 }
